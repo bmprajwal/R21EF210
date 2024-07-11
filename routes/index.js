@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express");
 const router = express.Router();
 
@@ -36,6 +37,7 @@ router.get("/:numberid", async (req, res) => {
 const fetchNumbersFromTestServer = async (numberid) => {
 	const id = getId(numberid);
 	const testServerUrl = `https://20.244.56.144/test/${id}`;
+  console.log(process.env.AUTH_TOKEN);
 	try {
 		const response = await axios.get(testServerUrl, {
 			headers: {
